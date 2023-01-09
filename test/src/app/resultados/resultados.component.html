@@ -1,0 +1,28 @@
+<body class="body-background">
+    <app-navbar></app-navbar>
+    <div class="content container">
+        <div class="row justify-content-center">
+            <div class="col-auto mx-auto">
+                <div class="text-center text-white">
+                    <h1 class="font-weight-bold">Resultados</h1>
+                    <table class="mt-5 table table-bordered table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Género musical</th>
+                            <th scope="col">Número de votos</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let resultado of resultados?.hashMap | keyvalue">
+                            <th scope="row">{{resultado.key}}</th>
+                            <th scope="row">{{resultado.value}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>   
+</body>
+
+

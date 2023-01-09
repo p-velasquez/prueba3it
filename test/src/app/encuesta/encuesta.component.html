@@ -1,0 +1,64 @@
+<body class="body-background">
+    <app-navbar></app-navbar>
+    <div class="content container">
+        <div class="row justify-content-center">
+            <div class="col-auto mx-auto">
+                <form>
+                    <div class="form-group text-center text-white">
+                        <h1 class="font-weight-bold">Encuesta</h1>
+                        <label class="font-weight-bold mt-3">ESTILO MUSICAL</label>
+                        <select [(ngModel)]="encuesta.idGeneroMusical" name="idGeneroMusical" class="font-weight-bold form-control text-uppercase">
+                            <option value='0'>Selecciona...</option>
+                            <option *ngFor="let generoMusical of generosMusicales?.generoMusicalList" [value]="generoMusical.idGeneroMusical">{{generoMusical.nombre}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group text-center text-white">
+                        <label class="font-weight-bold text-center">CORREO ELECTRÓNICO</label>
+                        <input [(ngModel)]="encuesta.correoUsuario" name="correoUsuario" type="text" class="font-weight-bold form-control" placeholder="INGRESA TU CORREO" required oninvalid="this.setCustomValidity('Llene este campo')">
+                    </div>
+                    <div class="form-group text-center text-white mt-4">
+                        <button type="submit" (click)="addEncuesta()" class="font-weight-bold col-12 btn btn-info text-center text-white" data-toggle="modal">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button id="openModalSuccess" [hidden]="true" data-toggle="modal" data-target="#modalSuccess"></button>
+    <button id="openModalError" [hidden]="true" data-toggle="modal" data-target="#modalError"></button>
+
+    <div id="modalSuccess" class="content modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header-fix bg-success justify-content-center">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>¡Perfecto!</h4>	
+                    <p>Se envió tu respuesta correctamente.</p>
+                    <a routerLink="/resultados" class="btn btn-success" data-dismiss="modal">Ver resultados</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div id="modalError" class="content modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header-fix bg-danger justify-content-center">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-x"></i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>¡Ooops!</h4>	
+                    <p>Algo salió mal. Intentalo más tarde.</p>
+                    <a class="btn btn-warning" data-dismiss="modal">Intentar nuevamente</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>

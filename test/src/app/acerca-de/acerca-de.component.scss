@@ -1,0 +1,18 @@
+$body-background: #56b67b;
+
+.body-background {
+    background-color: $body-background;
+}
+
+.btn-linkedin {
+    background: #0E76A8;
+    color: #fff;
+    border-width: 1px;
+}
+.btn-linkedin:link, .btn-linkedin:visited {
+    color: #fff;
+}
+.btn-linkedin:active, .btn-linkedin:hover {
+    background: #084461;
+    color: #fff;
+}
